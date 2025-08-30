@@ -6,7 +6,7 @@ from telebot import types
 # ==============================
 # CONFIG
 # ==============================
-TOKEN = os.getenv("BOT_TOKEN", "8373965027:AAGL4qfzFYqi-OD3KkbgGXNkWCwebUrIq78")
+TOKEN = os.getenv("BOT_TOKEN",)
 ADMIN_ID = 7922495578  # <-- তোমার এডমিন numeric ID
 bot = telebot.TeleBot(TOKEN)
 
@@ -686,3 +686,4 @@ def on_inline_decision(call: types.CallbackQuery):
 if __name__ == "__main__":
     print("🤖 Bot is running...")
     bot.infinity_polling()
+

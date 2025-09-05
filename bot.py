@@ -700,12 +700,13 @@ def getMessage():
 @app.route('/')
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com/7634035485:AAFstifAHD82NVziKXymGFot2wmpCNJsZHo" )
+    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com/" + TOKEN )
     return "Webhook set!", 200
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 

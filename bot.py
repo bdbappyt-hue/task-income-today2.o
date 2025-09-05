@@ -2,12 +2,15 @@ import os
 import sqlite3
 import telebot
 from telebot import types
+import os
+from flask import Flask, request
+
 
 # ==============================
 # CONFIG
 # ==============================
 TOKEN = os.getenv("BOT_TOKEN",)
-ADMIN_ID = 7922495578  # <-- তোমার এডমিন numeric ID
+ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))  # <-- তোমার এডমিন numeric ID
 bot = telebot.TeleBot(TOKEN)
 
 # ==============================
@@ -685,5 +688,24 @@ def on_inline_decision(call: types.CallbackQuery):
 # ==============================
 if __name__ == "__main__":
     print("🤖 Bot is running...")
-    bot.infinity_polling()
+    app = Flask(__name__)
+
+@app.route('/' + BOT_TOKEN, methods=['POST'])
+def getMessage():
+    json_str = request.get_data().decode('UTF-8')
+    update = telebot.types.Update.de_json(json_str)
+    bot.process_new_updates([update])
+    return "!", 200
+
+@app.route('/')
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url="https://task-income-today2.o.onrender.com/" + BOT_TOKEN)
+    return "Webhook set!", 200
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
+
 

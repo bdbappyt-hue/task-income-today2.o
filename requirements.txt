@@ -1,4 +1,8 @@
 pyTelegramBotAPI
 pytelegrambotapi
 flask
+psycopg2-binary
+sqlalchemy
+
+
 

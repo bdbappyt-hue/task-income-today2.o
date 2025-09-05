@@ -9,7 +9,7 @@ from flask import Flask, request
 # ==============================
 # CONFIG
 # ==============================
-TOKEN = os.getenv("BOT_TOKEN", "8373965027:AAGL4qfzFYqi-OD3KkbgGXNkWCwebUrIq78")
+TOKEN = os.getenv("BOT_TOKEN", "87634035485:AAFstifAHD82NVziKXymGFot2wmpCNJsZHo")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))  # <-- তোমার এডমিন numeric ID
 bot = telebot.TeleBot(TOKEN)
 
@@ -700,12 +700,13 @@ def getMessage():
 @app.route('/')
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com" + TOKEN)
+    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com/" + TOKEN)
     return "Webhook set!", 200
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 

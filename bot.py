@@ -7,7 +7,7 @@ from sqlalchemy import create_engine, text
 # ==============================
 # CONFIG
 # ==============================
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("7634035485:AAFstifAHD82NVziKXymGFot2wmpCNJsZHo")
 if not TOKEN:
     raise ValueError("❌ BOT_TOKEN not set in Environment Variables!")
 
@@ -741,3 +741,4 @@ if __name__ == "__main__":
     print("🤖 Bot is running...")
     # লোকাল টেস্টের সময় এটা চলবে; Render এ gunicorn দিয়ে চালানো উত্তম
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+

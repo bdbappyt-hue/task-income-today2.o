@@ -690,7 +690,7 @@ if __name__ == "__main__":
     print("🤖 Bot is running...")
     app = Flask(__name__)
 
-@app.route('/' + BOT_TOKEN, methods=['POST'])
+@app.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     json_str = request.get_data().decode('UTF-8')
     update = telebot.types.Update.de_json(json_str)
@@ -700,12 +700,13 @@ def getMessage():
 @app.route('/')
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com" + BOT_TOKEN)
+    bot.set_webhook(url="https://task-income-today2-o-1.onrender.com" + TOKEN)
     return "Webhook set!", 200
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 

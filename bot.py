@@ -9,7 +9,7 @@ from flask import Flask, request
 # ==============================
 # CONFIG
 # ==============================
-TOKEN = os.getenv("BOT_TOKEN",)
+TOKEN = os.getenv("BOT_TOKEN", "8373965027:AAGL4qfzFYqi-OD3KkbgGXNkWCwebUrIq78")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))  # <-- তোমার এডমিন numeric ID
 bot = telebot.TeleBot(TOKEN)
 
@@ -706,6 +706,7 @@ def webhook():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
 
